@@ -11,7 +11,7 @@ class Score {
 class StudentScore extends Score{
   String student;
 
-  StudentScore(super.score, this.student);
+  StudentScore(this.student, super.score);
 
   @override
   void showInfo(){
