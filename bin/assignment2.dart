@@ -11,18 +11,22 @@ void main(List<String> arguments) {
   for (int i = 0; i < studentsInfo.length; i++) {
     studentList.add(studentsInfo[i].student);
   }
-  print(studentList);
-  
 
   while (true) {
-    stdout.write('어떤 학생의 통계를 확인하시겠습니까? ');
+    stdout.write('\n어떤 학생의 통계를 확인하시겠습니까? ');
     String? input = stdin.readLineSync();
- /*
-      switch () {
-        case true:
-          
-        default:
-      }
-    }*/
+
+    switch (studentList.contains(input)) {
+      case true:
+        for (int i = 0; i < studentsInfo.length; i++) {
+          if (studentsInfo[i].student == input) {
+            studentsInfo[i].showInfo();
+          }
+        }
+        break;
+      default:
+        print('등록되지 않은 학생입니다. 다시 입력해주세요.');
+        break;
+    }
   }
 }
