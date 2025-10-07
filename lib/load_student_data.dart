@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:assignment2/score.dart';
+import 'score.dart';
 
 List<StudentScore> loadStudentData(String filePath) {
   List<StudentScore> studentsInfo = [];
