@@ -20,7 +20,7 @@ void assignmenat(List<StudentScore> studentsInfo) {
     switch (studentList.contains(input)) {
       case true:
         for (int i = 0; i < studentsInfo.length; i++) {
-          if (studentsInfo[i].student == input) {
+          if (studentsInfo[i].studentName == input) {
             content += '${studentsInfo[i].studentInfo()}\n';
             studentsInfo[i].showInfo();
           }

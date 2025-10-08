@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dart_application/best_student.dart';
 import 'package:dart_application/score.dart';
+import 'package:dart_application/total_score_average.dart';
 
 void assignmenat2(List<StudentScore> studentsInfo) {
 
@@ -17,7 +18,7 @@ void assignmenat2(List<StudentScore> studentsInfo) {
       case '1':
        bestStudent(studentsInfo);
       case '2':
-       
+       totalScoreAverage(studentsInfo);
       case '3':
         return;
     }

@@ -22,9 +22,9 @@ List<StudentScore> loadStudentData(String filePath) {
     for (int i = 0; i < studentsInfo.length; i++) {
       if (i % 5 == 0 && i >= 1) {
         studentList.add('\n');
-        studentList.add(studentsInfo[i].student);
+        studentList.add(studentsInfo[i].studentName);
       } else {
-        studentList.add(studentsInfo[i].student);
+        studentList.add(studentsInfo[i].studentName);
       }
     }
   } catch (e) {

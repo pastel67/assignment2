@@ -1,23 +1,23 @@
 class Score {
-  int score;
+  int studentScore;
 
-  Score(this.score);
+  Score(this.studentScore);
 
   void showInfo() {
-    print('>점수 : $score');
+    print('>점수 : $studentScore');
   }
 }
 
 class StudentScore extends Score {
-  String student;
+  String studentName;
 
-  StudentScore(this.student, super.score);
+  StudentScore(this.studentName, super.studentScore);
 
   String studentInfo(){
-    return '이름 : $student, 점수 : $score';
+    return '이름 : $studentName, 점수 : $studentScore';
   }
   @override
   void showInfo() {
-    print('\n> 이름 : $student, 점수 : $score');
+    print('\n> 이름 : $studentName, 점수 : $studentScore');
   }
 }
