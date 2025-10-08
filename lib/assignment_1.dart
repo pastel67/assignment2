@@ -5,8 +5,15 @@ import 'score.dart';
 
 void assignmenat(List<StudentScore> studentsInfo) {
   String content = '';
+  String list = '';
+
+  for (var student in studentList) {
+    list += '$student, ';
+  }
 
   for (int i = 0; i < 3; i++) {
+    print('\n*등록된 학생 목록');
+    print(list);
     stdout.write('\n어떤 학생의 통계를 확인하시겠습니까? ');
     String? input = stdin.readLineSync();
 

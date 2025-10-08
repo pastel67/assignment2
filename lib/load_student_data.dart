@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'score.dart';
-List<String> studentList = [];
+
+List<String> studentList = [''];
 
 List<StudentScore> loadStudentData(String filePath) {
   List<StudentScore> studentsInfo = [];
-
   try {
     final file = File(filePath);
     final List<String> lines = file.readAsLinesSync();
@@ -20,10 +20,10 @@ List<StudentScore> loadStudentData(String filePath) {
     }
     //이름만 있는 리스트 작성
     for (int i = 0; i < studentsInfo.length; i++) {
-      
-      if (i % 5 == 0) {
-        studentList.add('\n${studentsInfo[i].student}');
-      }else{
+      if (i % 5 == 0 && i >= 1) {
+        studentList.add('\n');
+        studentList.add(studentsInfo[i].student);
+      } else {
         studentList.add(studentsInfo[i].student);
       }
     }
