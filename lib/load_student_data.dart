@@ -18,7 +18,7 @@ List<StudentScore> loadStudentData(String filePath) {
       studentsInfo.add(StudentScore(student, score));
     }
   } catch (e) {
-    print("학생 데이터를 불러오는 데 실패했습니다: $e");
+    print("\n> 학생 데이터를 불러오는 데 실패했습니다: $e");
     exit(1);
   }
   return studentsInfo;

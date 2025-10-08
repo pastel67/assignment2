@@ -4,7 +4,7 @@ class Score {
   Score(this.score);
 
   void showInfo() {
-    print('점수 : $score');
+    print('>점수 : $score');
   }
 }
 
@@ -18,6 +18,6 @@ class StudentScore extends Score {
   }
   @override
   void showInfo() {
-    print('이름 : $student, 점수 : $score');
+    print('\n> 이름 : $student, 점수 : $score');
   }
 }
