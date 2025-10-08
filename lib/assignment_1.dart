@@ -1,14 +1,10 @@
 import 'dart:io';
+import 'package:dart_application/load_student_data.dart';
 import 'save_results.dart';
 import 'score.dart';
 
 void assignmenat(List<StudentScore> studentsInfo) {
-  List<String> studentList = [];
   String content = '';
-
-  for (int i = 0; i < studentsInfo.length; i++) {
-    studentList.add(studentsInfo[i].student);
-  }
 
   for (int i = 0; i < 3; i++) {
     stdout.write('\n어떤 학생의 통계를 확인하시겠습니까? ');

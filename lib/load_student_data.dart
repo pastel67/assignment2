@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'score.dart';
+List<String> studentList = [];
 
 List<StudentScore> loadStudentData(String filePath) {
   List<StudentScore> studentsInfo = [];
-  
+
   try {
     final file = File(filePath);
     final List<String> lines = file.readAsLinesSync();
@@ -17,8 +18,17 @@ List<StudentScore> loadStudentData(String filePath) {
 
       studentsInfo.add(StudentScore(student, score));
     }
+    //이름만 있는 리스트 작성
+    for (int i = 0; i < studentsInfo.length; i++) {
+      
+      if (i % 5 == 0) {
+        studentList.add('\n${studentsInfo[i].student}');
+      }else{
+        studentList.add(studentsInfo[i].student);
+      }
+    }
   } catch (e) {
-    print("\n> 학생 데이터를 불러오는 데 실패했습니다: $e");
+    print("\n학생 데이터를 불러오는 데 실패했습니다: $e");
     exit(1);
   }
   return studentsInfo;
