@@ -9,7 +9,7 @@ void main(List<String> arguments) {
 
   studentsInfo = loadStudentData('students.txt');
 
-  print('\n프로그램을 실행합니다.\n');
+  print('\n프로그램을 실행합니다.');
 
   while (true) {
     print('\n메뉴를 선택하세요.');
@@ -20,13 +20,13 @@ void main(List<String> arguments) {
     String? input = stdin.readLineSync();
     switch (input) {
       case '1':
-        assignmenat(studentsInfo);
+        assignmenat1(studentsInfo);
         break;
       case '2':
         assignmenat2(studentsInfo);
         break;
       case '3':
-        print('감사합니다!!');
+        print('------------\n감사합니다!!\n------------');
         return;
       //히든 커멘드
       case '7':
@@ -48,6 +48,7 @@ void main(List<String> arguments) {
         print(
           '__777777____7777____77___777__77___777_____77_____7_______________\n',
         );
+        print('good luck!');
         break;
       default:
         print('잘못된 입력입니다. 다시 입력해주세요.');

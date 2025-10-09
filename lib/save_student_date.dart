@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void saveResults(String filePath, String content) {
+void saveStudentData(String filePath, String content) {
   try {
     final file = File(filePath);
     file.writeAsStringSync(content);
