@@ -1,9 +1,10 @@
 import 'dart:io';
 import 'package:dart_application/best_student.dart';
+import 'package:dart_application/delete_student_data.dart';
 import 'package:dart_application/load_student_data.dart';
 import 'package:dart_application/score.dart';
 import 'package:dart_application/total_score_average.dart';
-import 'package:dart_application/upload_student_data.dart';
+import 'package:dart_application/update_student_data.dart';
 
 void assignmenat2(List<StudentScore> studentsInfo) {
   List<StudentScore> studentsInfo = [];
@@ -29,8 +30,9 @@ void assignmenat2(List<StudentScore> studentsInfo) {
       case '2':
         totalScoreAverage(studentsInfo);
       case '3':
-        uploadStudentInfo('students.txt', studentsInfo);
+        updateStudentInfo('students.txt', studentsInfo);
       case '4':
+        deleteStudentData('students.txt.',studentsInfo);
       default:
         return;
     }

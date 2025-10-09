@@ -1,15 +1,20 @@
 import 'package:dart_application/score.dart';
 
 void bestStudent(List<StudentScore> studentsInfo) {
-  print('');
   StudentScore bestStudent = studentsInfo[0];
 
-  for (var student in studentsInfo) {
-    if (bestStudent.studentScore <= student.studentScore) {
-      bestStudent = student;
+  for (int i = 1; i < studentsInfo.length; i++) {
+    if (bestStudent.studentScore <= studentsInfo[i].studentScore &&
+        bestStudent.studentName != studentsInfo[i].studentName) {
+      bestStudent = studentsInfo[i];
       print(
         '우수생: ${bestStudent.studentName} ( 평균 점수: ${bestStudent.studentScore})',
       );
     }
+  }
+  if (bestStudent == studentsInfo[0]) {
+    print(
+      '우수생: ${bestStudent.studentName} ( 평균 점수: ${bestStudent.studentScore})',
+    );
   }
 }
