@@ -19,7 +19,7 @@ void updateStudentInfo(String filePath, List<StudentScore> studentsInfo) {
 
     for (StudentScore student in studentsInfo) {
       if (name == student.studentName) {
-        name = student.studentName;
+        name = '${student.studentName}*';
       }
     }
     int score;
@@ -40,5 +40,16 @@ void updateStudentInfo(String filePath, List<StudentScore> studentsInfo) {
 
     studentsInfo.add(StudentScore(name, score));
   
+  try {
+    final file = File(filePath);
+    String content = '';
 
+    for (var newStudent in studentsInfo) {
+      content += '${newStudent.studentName},${newStudent.studentScore}\n';
+    }
+    file.writeAsStringSync(content);
+    print('학생 정보가 저장되었습니다.');
+  } catch (e) {
+    print("저장에 실패했습니다: $e");
+  }
 }
