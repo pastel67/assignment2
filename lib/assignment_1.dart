@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:dart_application/load_student_data.dart';
-import 'save_student_date.dart';
+import 'save_student.dart';
 import 'score.dart';
 
 void assignmenat1(List<StudentScore> studentsInfo) {
@@ -20,7 +20,7 @@ void assignmenat1(List<StudentScore> studentsInfo) {
       case true:
         for (int i = 0; i < studentsInfo.length; i++) {
           if (studentsInfo[i].studentName == input) {
-            String content = '${studentsInfo[i].studentInfo()}\n';
+            String content = '${studentsInfo[i].infomation()}\n';
             studentsInfo[i].showInfo();
             saveStudentData('result.txt', content);
             return;

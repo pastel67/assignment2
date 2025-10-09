@@ -13,11 +13,12 @@ class StudentScore extends Score {
 
   StudentScore(this.studentName, super.studentScore);
 
-  String studentInfo(){
+  String infomation() {
     return '이름 : $studentName, 점수 : $studentScore';
   }
+
   @override
   void showInfo() {
-    print('\n> 이름 : $studentName, 점수 : $studentScore');
+    print(infomation());
   }
 }
