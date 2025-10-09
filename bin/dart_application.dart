@@ -48,8 +48,8 @@ void main(List<String> arguments) {
         print(
           '__777777____7777______77777___77___777__77___777_____77_____7_______________\n',
         );
-        print('good luck!');
-        break;
+        print('good luck!\n');
+        return;
       default:
         print('잘못된 입력입니다. 다시 입력해주세요.');
     }

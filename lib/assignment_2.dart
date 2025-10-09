@@ -30,11 +30,13 @@ void assignmenat2(List<StudentScore> studentsInfo) {
       case '2':
         totalScoreAverage(studentsInfo);
       case '3':
-        updateStudentInfo('students.txt', studentsInfo);
+        updateStudentData('students.txt', studentsInfo);
       case '4':
-        deleteStudentData('students.txt.',studentsInfo);
-      default:
+        deleteStudentData('students.txt.', studentsInfo);
+      case '5':
         return;
+      default:
+        print('잘못된 입력입니다. 다시 입력해주세요.');
     }
   }
 }
