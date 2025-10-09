@@ -14,12 +14,23 @@ void updateStudentData(String filePath, List<StudentScore> studentsInfo) {
       break;
     }
   }
-  for (StudentScore student in studentsInfo) {
-    if (name == student.studentName) {
-      name = '${student.studentName}*';
+  while (true) {
+    int count = 1;
+    StudentScore deleteStudentName = studentsInfo.firstWhere(
+      (match) => match.studentName == name,
+    );
+
+    if (name == deleteStudentName.studentName) {
+      count++;
+      name = '${deleteStudentName.studentName}($count)';
+      print(name);
+    } else {
+      name = '${deleteStudentName.studentName}(${count - 1})';
+      print(name);
+      break;
     }
   }
-  
+
   int score;
   while (true) {
     stdout.write('> 학생 점수: ');

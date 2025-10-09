@@ -3,20 +3,33 @@ import 'dart:io';
 import 'package:dart_application/score.dart';
 
 void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
-  print('제거할 학생 이름을 입력해 주세요.');
-  stdout.write('> 학생 이름: ');
-  String? name = stdin.readLineSync();
-
+  String name;
+  print('\n제거할 학생 이름을 입력해 주세요.');
+  while (true) {
+    stdout.write('> 학생 이름: ');
+    String input = stdin.readLineSync() ?? '';
+    if (input == '') {
+      print('다시 입력해 주세요.');
+    } else {
+      name = input;
+      break;
+    }
+  }
+  
   try {
     while (true) {
+      int count = 1;
       StudentScore deleteStudentName = studentsInfo.firstWhere(
         (match) => match.studentName == name,
       );
 
       if (name == deleteStudentName.studentName) {
-        name = '${deleteStudentName.studentName}*';
+        count++;
+        name = '${deleteStudentName.studentName}($count)';
         print(name);
       } else {
+        name = '${deleteStudentName.studentName}(${count - 1})';
+        print(name);
         break;
       }
     }
