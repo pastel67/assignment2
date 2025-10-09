@@ -8,12 +8,11 @@ void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
   String? name = stdin.readLineSync();
 
   try {
-    StudentScore deleteStudentName = studentsInfo.firstWhere(
-      (match) => match.studentName == name,
-    );
-    print(deleteStudentName.studentName);
-
     while (true) {
+      StudentScore deleteStudentName = studentsInfo.firstWhere(
+        (match) => match.studentName == name,
+      );
+
       if (name == deleteStudentName.studentName) {
         name = '${deleteStudentName.studentName}*';
         print(name);
