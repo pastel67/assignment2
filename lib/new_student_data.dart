@@ -25,7 +25,7 @@ void newStudentData(String filePath, List<StudentScore> studentsInfo) {
     }
 
     file.writeAsStringSync(content);
-    print('학생 정보가 저장되었습니다.');
+    print('$getStudentName 학생 정보가 저장되었습니다.');
   } catch (e) {
     print("저장에 실패했습니다: $e");
   }

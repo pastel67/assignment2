@@ -4,19 +4,20 @@ import 'package:dart_application/load_student_data.dart';
 String inputStudentName(bool deleteSwitch) {
   studentList = [];
 
-  loadStudentData ('students.txt');
+  loadStudentData('students.txt');
   // 등록할 학생 이름 입력
   String studentName = '';
   String firstInput = '';
   while (true) {
     stdout.write('> 학생 이름: ');
-    String input = stdin.readLineSync() ?? '';
+    String input = stdin.readLineSync()?? '';
+    String replacedInput = input.replaceAll(' ', '');
 
-    if (input == '') {
+    if (replacedInput == '') {
       print('다시 입력해 주세요.');
     } else {
-      studentName = input;
-      firstInput = input;
+      studentName = input.trim();
+      firstInput = input.trim();
       break;
     }
   }
