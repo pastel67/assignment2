@@ -2,18 +2,7 @@ import 'dart:io';
 import 'package:dart_application/load_student_data.dart';
 import 'package:dart_application/score.dart';
 
-void saveStudentData(String filePath, String content) {
-  try {
-    final file = File(filePath);
-    file.writeAsStringSync(content);
-    print("저장이 완료되었습니다.\n");
-  } catch (e) {
-    print("저장에 실패했습니다: $e\n");
-  }
-}
-
-
-String saveStudentName(List<StudentScore> studentsInfo) {
+String inputStudentName(List<StudentScore> studentsInfo, bool deleteSwitch) {
   String studentName = '';
   String firstInput = '';
   while (true) {
@@ -33,14 +22,18 @@ String saveStudentName(List<StudentScore> studentsInfo) {
     if (studentList.contains(studentName)) {
       count++;
       studentName = '$firstInput($count)';
-    } else {
+    } else if(count - 1 == 1){
+      studentName = firstInput;
+      break;
+    }else{
+      deleteSwitch ? studentName = '$firstInput(${count -= 1})' : null;
       break;
     }
   }
   return studentName;
 }
 
- int saveStudentScore(List<StudentScore> studentsInfo) {
+int inputStudentScore(List<StudentScore> studentsInfo) {
   int score;
   while (true) {
     stdout.write('> 학생 점수: ');
@@ -58,4 +51,4 @@ String saveStudentName(List<StudentScore> studentsInfo) {
     }
   }
   return score;
- }
+}

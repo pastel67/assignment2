@@ -1,12 +1,12 @@
 import 'dart:io';
-import 'package:dart_application/save_student_info.dart';
+import 'package:dart_application/input_student_data.dart';
 import 'package:dart_application/score.dart';
 
 void updateStudentData(String filePath, List<StudentScore> studentsInfo) {
   print('\n등록할 학생의 이름을 입력해주세요.');
-  String getStudentName = saveStudentName(studentsInfo);
+  String getStudentName = inputStudentName(studentsInfo, false);
 
-  int getStudentScore = saveStudentScore(studentsInfo);
+  int getStudentScore = inputStudentScore(studentsInfo);
 
   studentsInfo.add(StudentScore(getStudentName, getStudentScore));
 

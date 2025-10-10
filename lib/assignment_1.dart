@@ -22,7 +22,13 @@ void assignmenat1(List<StudentScore> studentsInfo) {
           if (studentsInfo[i].studentName == input) {
             String content = '${studentsInfo[i].infomation()}\n';
             studentsInfo[i].showInfo();
-            saveStudentData('result.txt', content);
+            try {
+              final file = File('result.txt');
+              file.writeAsStringSync(content);
+              print("저장이 완료되었습니다.\n");
+            } catch (e) {
+              print("저장에 실패했습니다: $e\n");
+            }
             return;
           }
         }
