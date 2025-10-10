@@ -7,11 +7,11 @@ import 'package:dart_application/total_score_average.dart';
 import 'package:dart_application/update_student_data.dart';
 
 void assignmenat2(List<StudentScore> studentsInfo) {
-  List<StudentScore> studentsInfo = [];
-
-  studentsInfo = loadStudentData('students.txt');
-
   while (true) {
+    List<StudentScore> studentsInfo = [];
+
+    studentsInfo = loadStudentData('students.txt');
+
     print('\n메뉴를 선택하세요.');
     print('1. 우수생 출력');
     print('2. 전체 평균 점수 출력');

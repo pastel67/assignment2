@@ -11,8 +11,7 @@ List<StudentScore> loadStudentData(String filePath) {
 
     for (var line in lines) {
       final List<dynamic> parts = line.split(',');
-      if (parts.length != 2) throw FormatException('잘못된 데이터 형식: $line');
-
+      if (parts.length != 2) throw FormatException('잘못된 데이터 형식: $line(사용할 수 없는 이름, 이름이나 점수 누락, 빈칸 기제 등 확인');
       String student = parts[0].trim();
       int score = int.parse(parts[1]);
 

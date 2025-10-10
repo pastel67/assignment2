@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:dart_application/score.dart';
 
 void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
-  String name;
+  String? name;
+  String firstInput;
   print('\n제거할 학생 이름을 입력해 주세요.');
   while (true) {
     stdout.write('> 학생 이름: ');
@@ -11,13 +12,14 @@ void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
     if (input == '') {
       print('다시 입력해 주세요.');
     } else {
+      firstInput = input;
       name = input;
       break;
     }
   }
-  
+
   try {
-    while (true) {
+   // while (true) {
       int count = 1;
       StudentScore deleteStudentName = studentsInfo.firstWhere(
         (match) => match.studentName == name,
@@ -25,14 +27,16 @@ void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
 
       if (name == deleteStudentName.studentName) {
         count++;
-        name = '${deleteStudentName.studentName}($count)';
+        name = '$firstInput($count)';
+        print(firstInput);
+        print(count);
         print(name);
       } else {
-        name = '${deleteStudentName.studentName}(${count - 1})';
+        name = '$firstInput(${count - 1})';
         print(name);
-        break;
+      //  break;
       }
-    }
+    //}
 
     /*final file = File(filePath);
     String content = '';
