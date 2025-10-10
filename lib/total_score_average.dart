@@ -1,8 +1,9 @@
 import 'dart:io';
-
 import 'package:dart_application/score.dart';
 
+
 void totalScoreAverage(List<StudentScore> studentsInfo) {
+  //전체 학생 점수 평균 계산
   double sumScore = 0;
 
   for (StudentScore studentInfo in studentsInfo) {
@@ -12,6 +13,7 @@ void totalScoreAverage(List<StudentScore> studentsInfo) {
 
   print('전체 평균 점수: ${totalAverage.toStringAsFixed(2)}');
 
+  // 평균점 이상인 학생 목록 출력(추가)
   while (true) {
     stdout.write('평균점 이상의 학생 목록을 보시겠습니까?(y/n)');
     String? input = stdin.readLineSync();

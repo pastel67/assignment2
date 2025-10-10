@@ -5,7 +5,7 @@ import 'package:dart_application/score.dart';
 void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
   String getStudentName = inputStudentName(studentsInfo, true);
 
-  
+  print(getStudentName);
 
   /*try {
     final file = File(filePath);
