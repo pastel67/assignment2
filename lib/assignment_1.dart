@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:dart_application/load_student_data.dart';
-import 'save_student.dart';
+import 'save_student_info.dart';
 import 'score.dart';
 
 void assignmenat1(List<StudentScore> studentsInfo) {
