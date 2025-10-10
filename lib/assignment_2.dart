@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:dart_application/best_student.dart';
 import 'package:dart_application/delete_student_data.dart';
 import 'package:dart_application/load_student_data.dart';
-import 'package:dart_application/save_student_info.dart';
+import 'package:dart_application/save_student_data.dart';
 import 'package:dart_application/score.dart';
 import 'package:dart_application/total_score_average.dart';
 
