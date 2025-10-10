@@ -18,7 +18,7 @@ List<StudentScore> loadStudentData(String filePath) {
 
       studentsInfo.add(StudentScore(student, score));
     }
-    //이름만 있는 리스트 작성(추가)
+    //이름만 있는 리스트 작성(추가기능)
     for (int i = 0; i < studentsInfo.length; i++) {
       if (i % 5 == 0 && i >= 1) {
         studentList.add('\n');

@@ -13,15 +13,16 @@ String inputStudentName(bool deleteSwitch) {
     String input = stdin.readLineSync()?? '';
     String replacedInput = input.replaceAll(' ', '');
 
-    if (replacedInput == '') {
-      print('다시 입력해 주세요.');
+    //입력값 필터링
+    if (deleteSwitch ? !studentList.contains(input) || replacedInput == '' : replacedInput == '') {
+      deleteSwitch ? print('동록되지 않은 학생입니다.') : print('다시 입력해 주세요.');
     } else {
       studentName = input.trim();
       firstInput = input.trim();
       break;
     }
   }
-  // 동명이인 이름 뒤에 숫자 추가(추가)
+  // 동명이인 이름 뒤에 숫자 추가(추가기능)
   int count = 1;
   while (true) {
     if (studentList.contains(studentName)) {
@@ -29,14 +30,11 @@ String inputStudentName(bool deleteSwitch) {
       studentName = '$firstInput($count)';
     } else if (count == 2) {
       deleteSwitch ? studentName = firstInput : null;
-      deleteSwitch ? print('2 on') : print('2 off');
       break;
     } else if (count > 2) {
       deleteSwitch ? studentName = '$firstInput(${count -= 1})' : null;
-      deleteSwitch ? print('3 on') : print('3 off');
       break;
     } else {
-      deleteSwitch ? print('1 on') : print('1 off');
       break;
     }
   }
@@ -50,7 +48,7 @@ int inputStudentScore() {
     stdout.write('> 학생 점수: ');
     String input = stdin.readLineSync() ?? '';
 
-    // 1~100의 숫자만 입력 할 수 있게 하는 조건식(추가)
+    // 1~100의 숫자만 입력 할 수 있게 입력값 필터링
     try {
       int.parse(input);
 

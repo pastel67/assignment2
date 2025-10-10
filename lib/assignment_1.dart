@@ -3,16 +3,14 @@ import 'package:dart_application/load_student_data.dart';
 import 'score.dart';
 
 void assignmenat1(List<StudentScore> studentsInfo) {
-  String list = '';
+  studentList = [];
 
-  for (var student in studentList) {
-    list += '$student, ';
-  }
+  loadStudentData('students.txt');
   
   while (true) {
-    //등록되어있는 학생 목록 출력(추가)
+    //등록되어있는 학생 목록 출력(추가기능)
     print('\n*등록된 학생 목록');
-    print(list);
+    print(studentList);
     // 출력할 학생 정보 입력
     stdout.write('\n어떤 학생의 통계를 확인하시겠습니까?\n> ');
     String? input = stdin.readLineSync();

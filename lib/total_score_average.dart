@@ -13,7 +13,7 @@ void totalScoreAverage(List<StudentScore> studentsInfo) {
 
   print('전체 평균 점수: ${totalAverage.toStringAsFixed(2)}');
 
-  // 평균점 이상인 학생 목록 출력(추가)
+  // 평균점 이상인 학생 목록 출력(추가기능)
   while (true) {
     stdout.write('평균점 이상의 학생 목록을 보시겠습니까?(y/n)');
     String? input = stdin.readLineSync();

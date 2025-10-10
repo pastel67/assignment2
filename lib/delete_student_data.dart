@@ -3,6 +3,7 @@ import 'package:dart_application/input_student_data.dart';
 import 'package:dart_application/score.dart';
 
 void deleteStudentData(String filePath, List<StudentScore> studentsInfo) {
+  // 학생 정보 삭제 (추가기능)
   String getStudentName = inputStudentName(true);
   
   for (int i = 0; i < studentsInfo.length; i++) {
