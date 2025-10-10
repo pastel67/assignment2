@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'package:dart_application/load_student_data.dart';
-import 'package:dart_application/score.dart';
 
-String inputStudentName(List<StudentScore> studentsInfo, bool deleteSwitch) {
+String inputStudentName(bool deleteSwitch) {
+  studentList = [];
+
+  loadStudentData ('students.txt');
   // 등록할 학생 이름 입력
   String studentName = '';
   String firstInput = '';
@@ -24,19 +26,23 @@ String inputStudentName(List<StudentScore> studentsInfo, bool deleteSwitch) {
     if (studentList.contains(studentName)) {
       count++;
       studentName = '$firstInput($count)';
-    } else if (count - 1 == 1) {
-      studentName = '$firstInput(2)';
+    } else if (count == 2) {
+      deleteSwitch ? studentName = firstInput : null;
+      deleteSwitch ? print('2 on') : print('2 off');
+      break;
+    } else if (count > 2) {
+      deleteSwitch ? studentName = '$firstInput(${count -= 1})' : null;
+      deleteSwitch ? print('3 on') : print('3 off');
       break;
     } else {
-      deleteSwitch ? studentName = '$firstInput(${count -= 1})' : null;
+      deleteSwitch ? print('1 on') : print('1 off');
       break;
     }
   }
   return studentName;
 }
 
-
-int inputStudentScore(List<StudentScore> studentsInfo) {
+int inputStudentScore() {
   // 등록할 학생의 점수 입력
   int score;
   while (true) {

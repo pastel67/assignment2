@@ -22,9 +22,6 @@ void assignmenat2(List<StudentScore> studentsInfo) {
     stdout.write('> 선택: ');
     String? input = stdin.readLineSync();
 
-    if (input == null) {
-      print('다시 연결해주세요.');
-    }
     switch (input) {
       case '1':
         bestStudent(studentsInfo);
@@ -33,7 +30,7 @@ void assignmenat2(List<StudentScore> studentsInfo) {
       case '3':
         newStudentData('students.txt', studentsInfo);
       case '4':
-        deleteStudentData('students.txt.', studentsInfo);
+        deleteStudentData('students.txt', studentsInfo);
       case '5':
         return;
       default:

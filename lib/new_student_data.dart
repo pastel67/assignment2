@@ -5,9 +5,9 @@ import 'package:dart_application/score.dart';
 void newStudentData(String filePath, List<StudentScore> studentsInfo) {
   // 학생 정보 추가 기능(추가)
   print('\n등록할 학생의 이름을 입력해주세요.');
-  String getStudentName = inputStudentName(studentsInfo, false);
-  int getStudentScore = inputStudentScore(studentsInfo);
-  
+  String getStudentName = inputStudentName(false);
+  int getStudentScore = inputStudentScore();
+
   studentsInfo.add(StudentScore(getStudentName, getStudentScore));
 
   try {
