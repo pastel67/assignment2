@@ -1,8 +1,7 @@
 import 'dart:io';
 import 'package:dart_application/score.dart';
 
-
-void totalScoreAverage(List<StudentScore> studentsInfo) {
+void totalStudentScoreAverage(List<StudentScore> studentsInfo) {
   //전체 학생 점수 평균 계산
   double sumScore = 0;
 

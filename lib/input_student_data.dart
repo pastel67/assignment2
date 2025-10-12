@@ -1,20 +1,24 @@
 import 'dart:io';
 import 'package:dart_application/load_student_data.dart';
 
-String inputStudentName(bool deleteSwitch) {
-  studentList = [];
+// 학생 이름 입력 함수
+// deleteSwitch: true(삭제), false(등록,검색)
+// nameCheckSwitch: true(동명이인 처리), false(동명이인 처리X
+String inputStudentName(bool deleteSwitch, bool nameCheckSwitch) {
+  List<String> studentList = loadNameList('students.txt');
 
-  loadStudentData('students.txt');
   // 등록할 학생 이름 입력
   String studentName = '';
   String firstInput = '';
   while (true) {
     stdout.write('> 학생 이름: ');
-    String input = stdin.readLineSync()?? '';
+    String input = stdin.readLineSync() ?? '';
     String replacedInput = input.replaceAll(' ', '');
 
     //입력값 필터링
-    if (deleteSwitch ? !studentList.contains(input) || replacedInput == '' : replacedInput == '') {
+    if (deleteSwitch
+        ? !studentList.contains(input) || replacedInput == ''
+        : replacedInput == '') {
       deleteSwitch ? print('동록되지 않은 학생입니다.') : print('다시 입력해 주세요.');
     } else {
       studentName = input.trim();
@@ -22,25 +26,34 @@ String inputStudentName(bool deleteSwitch) {
       break;
     }
   }
+
   // 동명이인 이름 뒤에 숫자 추가(추가기능)
-  int count = 1;
-  while (true) {
-    if (studentList.contains(studentName)) {
-      count++;
-      studentName = '$firstInput($count)';
-    } else if (count == 2) {
-      deleteSwitch ? studentName = firstInput : null;
-      break;
-    } else if (count > 2) {
-      deleteSwitch ? studentName = '$firstInput(${count -= 1})' : null;
-      break;
-    } else {
-      break;
-    }
+  bool nameCheck = nameCheckSwitch ? true : false;
+
+  switch (nameCheck) {
+    case true:
+      int count = 1;
+      while (true) {
+        if (studentList.contains(studentName)) {
+          count++;
+          studentName = '$firstInput($count)';
+        } else if (count == 2) {
+          deleteSwitch ? studentName = firstInput : null;
+          break;
+        } else if (count > 2) {
+          deleteSwitch ? studentName = '$firstInput(${count -= 1})' : null;
+          break;
+        } else {
+          break;
+        }
+      }
+      return studentName;
+    case false:
+      return studentName;
   }
-  return studentName;
 }
 
+// 학생 점수 입력 함수
 int inputStudentScore() {
   // 등록할 학생의 점수 입력
   int score;
