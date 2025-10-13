@@ -25,7 +25,7 @@ void assignmenat2(List<StudentScore> studentsInfo) {
     print('7. 프로그램 종료\n');
     stdout.write('> 선택: ');
     String? input = stdin.readLineSync();
-
+    
     switch (input) {
       case '1':
         bestStudent(studentsInfo);

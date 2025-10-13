@@ -15,21 +15,21 @@ String inputStudentName(bool deleteSwitch, bool nameCheckSwitch) {
     String input = stdin.readLineSync() ?? '';
     print(''); 
     //입력값 필터링
-    String replacedInput = input.replaceAll(' ', '');
+    String replacedInput = input.replaceAll(' ', '');// 공백제거
     if (deleteSwitch
         ? !studentList.contains(input) || replacedInput == ''
         : replacedInput == '') {
       deleteSwitch ? print('등록되지 않은 학생입니다.') : print('다시 입력해 주세요.');
     } else {
-      studentName = input.trim();
-      firstInput = input.trim();
+      studentName = input.trim(); // 앞뒤 공백 제거
+      firstInput = input.trim();  // 동명이인 처리용 원본 저장
       break;
     }
   }
 
   // 동명이인 이름 뒤에 숫자 추가(추가기능)
   bool nameCheck = nameCheckSwitch ? true : false;
-
+  
   switch (nameCheck) {
     case true:
       int count = 1;

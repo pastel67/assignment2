@@ -14,7 +14,7 @@ void assignmenat1(List<StudentScore> studentsInfo) {
     print('----------------------------------------------');
     //학생 정보 출력
     String content = findStudentInfo(studentsInfo);
-
+    
     //출력한 학생 정보 저장
     try {
       final file = File('result.txt');
