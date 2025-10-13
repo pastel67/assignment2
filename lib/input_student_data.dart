@@ -3,7 +3,7 @@ import 'package:dart_application/load_student_data.dart';
 
 // 학생 이름 입력 함수
 // deleteSwitch: true(삭제), false(등록,검색)
-// nameCheckSwitch: true(동명이인 처리), false(동명이인 처리X
+// nameCheckSwitch: true(동명이인 처리), false(동명이인 처리X)
 String inputStudentName(bool deleteSwitch, bool nameCheckSwitch) {
   List<String> studentList = loadNameList('students.txt');
 
@@ -13,13 +13,13 @@ String inputStudentName(bool deleteSwitch, bool nameCheckSwitch) {
   while (true) {
     stdout.write('> 학생 이름: ');
     String input = stdin.readLineSync() ?? '';
-    String replacedInput = input.replaceAll(' ', '');
-
+    print(''); 
     //입력값 필터링
+    String replacedInput = input.replaceAll(' ', '');
     if (deleteSwitch
         ? !studentList.contains(input) || replacedInput == ''
         : replacedInput == '') {
-      deleteSwitch ? print('동록되지 않은 학생입니다.') : print('다시 입력해 주세요.');
+      deleteSwitch ? print('등록되지 않은 학생입니다.') : print('다시 입력해 주세요.');
     } else {
       studentName = input.trim();
       firstInput = input.trim();
