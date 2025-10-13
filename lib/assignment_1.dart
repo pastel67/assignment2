@@ -6,7 +6,7 @@ import 'score.dart';
 // 과제 1: 학생 정보 출력 및 파일 저장
 void assignmenat1(List<StudentScore> studentsInfo) {
   List<String> studentList = loadNameList('students.txt');
-
+  
   while (true) {
     //등록되어있는 학생 목록 출력(추가기능)
     print('\n--------------*등록된 학생 목록*--------------');
